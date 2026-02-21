@@ -24,3 +24,38 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ─── Gold tokens ─── */
+:root {
+  --gold-primary: #D4AF37;
+  --gold-light: #F0D080;
+  --gold-muted: rgba(212, 175, 55, 0.15);
+}
+
+/* ─── Pricing Grid ─── */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+/* Tablet */
+@media (max-width: 1023px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .pricing-card-relevant {
+    margin-top: 0 !important;
+  }
+}
+
+/* Mobile — RELEVANT primul */
+@media (max-width: 639px) {
+  .pricing-card-relevant { order: -1; }
+  .pricing-card-vizibil   { order: 0; }
+  .pricing-card-autoritate { order: 1; }
+}
