@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const links = [
   { href: "#servicii", label: "Servicii" },
@@ -9,16 +9,50 @@ const links = [
   { href: "#contact", label: "Contact" },
 ];
 
+// Diamond + V chevron logo in gold
+function LogoIcon() {
+  return (
+    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+      {/* Diamond / rhombus shape */}
+      <polygon
+        points="17,2 32,17 17,32 2,17"
+        fill="#c8a96e"
+      />
+      {/* V chevron pointing down, in dark ink */}
+      <polyline
+        points="10,12 17,22 24,12"
+        stroke="#0A0F1E"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+    </svg>
+  );
+}
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
+    <header
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md"
+      style={{
+        background: "rgba(10,15,30,0.92)",
+        borderBottom: "1px solid rgba(200,169,110,0.15)",
+      }}
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 font-bold text-xl text-gray-900">
-          <span className="text-blue-600">Vertex</span>
-          <span>Media</span>
+        <a href="#" className="flex items-center gap-2.5">
+          <LogoIcon />
+          <span
+            className="font-bold text-xl tracking-tight"
+            style={{ color: "#F0EDE6" }}
+          >
+            Vertex{" "}
+            <span style={{ color: "#c8a96e" }}>Media</span>
+          </span>
         </a>
 
         {/* Desktop Nav */}
@@ -27,7 +61,15 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors"
+              className="text-sm font-medium transition-colors"
+              style={{ color: "rgba(240,237,230,0.65)" }}
+              onMouseEnter={(e) =>
+                ((e.currentTarget as HTMLAnchorElement).style.color = "#c8a96e")
+              }
+              onMouseLeave={(e) =>
+                ((e.currentTarget as HTMLAnchorElement).style.color =
+                  "rgba(240,237,230,0.65)")
+              }
             >
               {link.label}
             </a>
@@ -37,15 +79,29 @@ export default function Navbar() {
         {/* CTA Desktop */}
         <a
           href="#pachete"
-          className="hidden md:inline-flex items-center gap-2 bg-blue-600 text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+          className="hidden md:inline-flex items-center gap-2 text-sm font-semibold px-5 py-2 rounded-lg transition-all"
+          style={{
+            background: "#c8a96e",
+            color: "#0A0F1E",
+          }}
+          onMouseEnter={(e) => {
+            const el = e.currentTarget as HTMLAnchorElement;
+            el.style.background = "#e0c98a";
+            el.style.boxShadow = "0 4px 16px rgba(200,169,110,0.35)";
+          }}
+          onMouseLeave={(e) => {
+            const el = e.currentTarget as HTMLAnchorElement;
+            el.style.background = "#c8a96e";
+            el.style.boxShadow = "none";
+          }}
         >
-          <Zap size={14} />
           Începe acum
         </a>
 
         {/* Mobile menu toggle */}
         <button
-          className="md:hidden p-2 text-gray-700"
+          className="md:hidden p-2"
+          style={{ color: "#c8a96e" }}
           onClick={() => setOpen(!open)}
           aria-label="Meniu"
         >
@@ -55,13 +111,20 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-white border-t border-gray-100 px-4 py-4 flex flex-col gap-4">
+        <div
+          className="md:hidden px-4 py-4 flex flex-col gap-4"
+          style={{
+            background: "rgba(10,15,30,0.98)",
+            borderTop: "1px solid rgba(200,169,110,0.15)",
+          }}
+        >
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="text-sm font-medium text-gray-700 hover:text-blue-600"
+              className="text-sm font-medium"
+              style={{ color: "rgba(240,237,230,0.75)" }}
             >
               {link.label}
             </a>
@@ -69,9 +132,9 @@ export default function Navbar() {
           <a
             href="#pachete"
             onClick={() => setOpen(false)}
-            className="inline-flex items-center gap-2 bg-blue-600 text-white text-sm font-semibold px-4 py-3 rounded-lg hover:bg-blue-700 transition-colors justify-center"
+            className="inline-flex items-center justify-center gap-2 text-sm font-semibold px-4 py-3 rounded-lg"
+            style={{ background: "#c8a96e", color: "#0A0F1E" }}
           >
-            <Zap size={14} />
             Începe acum
           </a>
         </div>

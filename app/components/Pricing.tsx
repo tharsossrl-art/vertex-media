@@ -1,7 +1,7 @@
 "use client";
 import { Zap, ShieldCheck, Gem, Check } from "lucide-react";
 
-// ─── VIZIBIL bullets (from Scribe) ───
+// ─── VIZIBIL bullets ───
 const vizibilFeatures = [
   "Apari în fața oamenilor potriviți, constant — 12 postări + 4 Reels pe lună pe 2 platforme, fără goluri sau postări disperate de duminică seara",
   "Arăți ca un brand real, nu ca un amator cu Canva — grafică custom în culorile tale, nu template-uri pe care le-ai văzut la 50 de alte firme",
@@ -10,7 +10,7 @@ const vizibilFeatures = [
   "Ai pe cineva care răspunde când ai nevoie — timp de răspuns garantat de 24h, luni-vineri",
 ];
 
-// ─── RELEVANT bullets (from Scribe) ───
+// ─── RELEVANT bullets ───
 const relevantFeatures = [
   "Reclamele tale ajung la cine trebuie, nu la toată lumea — setup și gestionare campanii Meta + Google, cu targeting precis pe audiența ta ideală",
   "Nu mai arzi bani în ads fără să știi ce se întâmplă — raport săptămânal cu ce merge, ce nu merge și ce schimbăm",
@@ -20,7 +20,7 @@ const relevantFeatures = [
   "Nu mai improvizezi — strategie pe 3 luni cu obiective și KPI-uri clare, ca să ai direcție, nu haos",
 ];
 
-// ─── AUTORITATE bullets (from Scribe) ───
+// ─── AUTORITATE bullets ───
 const autoritateFeatures = [
   "Ești prezent aproape zilnic — pe toate platformele relevante — 28+ postări/lună + 12 Reels, plus moderare activă la comentarii și DM-uri",
   "Video real, nu selfie-uri de pe telefon — 1 sesiune de filmare on-site/lună în Timișoara inclusă, ca să ai conținut autentic care vinde",
@@ -35,17 +35,17 @@ export default function Pricing() {
     <section
       id="pachete"
       className="py-24 px-4"
-      style={{ background: "#F8FAFC" }}
+      style={{ background: "#0D1117" }}
     >
       <div className="max-w-5xl mx-auto">
         {/* ─── Trust Badge ─── */}
         <div className="flex justify-center mb-6">
           <span
-            className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-blue-600"
+            className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider"
             style={{
-              background:
-                "linear-gradient(135deg, rgba(37,99,235,0.08) 0%, rgba(16,185,129,0.08) 100%)",
-              border: "1px solid rgba(37,99,235,0.20)",
+              background: "rgba(200,169,110,0.10)",
+              border: "1px solid rgba(200,169,110,0.30)",
+              color: "#c8a96e",
             }}
           >
             <Zap size={13} />
@@ -55,17 +55,27 @@ export default function Pricing() {
 
         {/* ─── Section Heading ─── */}
         <div className="text-center mb-14">
-          <h2 className="text-4xl font-bold text-gray-900 leading-tight mb-3">
+          <h2
+            className="text-4xl font-bold leading-tight mb-3"
+            style={{ color: "#F0EDE6" }}
+          >
             Știi exact ce primești.
             <br />
-            Știi exact cât plătești. Fără surprize.
+            Știi exact cât plătești.{" "}
+            <span style={{ color: "#c8a96e" }}>Fără surprize.</span>
           </h2>
-          <p className="text-gray-500 text-base max-w-lg mx-auto leading-relaxed">
+          <p
+            className="text-base max-w-lg mx-auto leading-relaxed"
+            style={{ color: "rgba(240,237,230,0.55)" }}
+          >
             Singurii din Timișoara cu prețuri afișate direct.
             <br />
             Fără &ldquo;contactează-ne pentru ofertă&rdquo;.
           </p>
-          <p className="text-gray-400 text-sm mt-3">
+          <p
+            className="text-sm mt-3"
+            style={{ color: "rgba(240,237,230,0.35)" }}
+          >
             Alege nivelul potrivit pentru unde ești acum. Nu există răspuns greșit — există doar punctul tău de pornire.
           </p>
         </div>
@@ -76,26 +86,27 @@ export default function Pricing() {
           <div
             className="pricing-card-vizibil rounded-xl transition-all duration-300 hover:-translate-y-1 relative"
             style={{
-              background: "#FFFFFF",
-              border: "1px solid #E5E7EB",
+              background: "rgba(255,255,255,0.03)",
+              border: "1px solid rgba(200,169,110,0.18)",
               padding: "32px 28px",
-              boxShadow: "0 1px 3px rgba(0,0,0,0.08)",
+              backdropFilter: "blur(8px)",
+              boxShadow: "0 4px 24px rgba(0,0,0,0.30)",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLDivElement).style.boxShadow =
-                "0 4px 12px rgba(0,0,0,0.08)";
-              (e.currentTarget as HTMLDivElement).style.borderColor = "#D1D5DB";
+              const el = e.currentTarget as HTMLDivElement;
+              el.style.borderColor = "rgba(200,169,110,0.45)";
+              el.style.boxShadow = "0 8px 32px rgba(0,0,0,0.40), 0 0 24px rgba(200,169,110,0.08)";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLDivElement).style.boxShadow =
-                "0 1px 3px rgba(0,0,0,0.08)";
-              (e.currentTarget as HTMLDivElement).style.borderColor = "#E5E7EB";
+              const el = e.currentTarget as HTMLDivElement;
+              el.style.borderColor = "rgba(200,169,110,0.18)";
+              el.style.boxShadow = "0 4px 24px rgba(0,0,0,0.30)";
             }}
           >
             {/* Tier label */}
             <p
               className="text-xs font-semibold uppercase tracking-wider mb-4"
-              style={{ color: "#6B7280" }}
+              style={{ color: "rgba(200,169,110,0.70)" }}
             >
               Vizibil
             </p>
@@ -104,28 +115,44 @@ export default function Pricing() {
             <div className="flex items-end gap-1 mb-1">
               <span
                 className="font-bold leading-none"
-                style={{ fontSize: "42px", color: "#2563EB" }}
+                style={{ fontSize: "42px", color: "#c8a96e" }}
               >
                 1.999
               </span>
-              <span className="text-sm text-gray-400 mb-2">RON/lună</span>
+              <span
+                className="text-sm mb-2"
+                style={{ color: "rgba(240,237,230,0.45)" }}
+              >
+                RON/lună
+              </span>
             </div>
 
             {/* Tagline */}
-            <p className="text-sm text-gray-500 italic mb-5 leading-relaxed">
+            <p
+              className="text-sm italic mb-5 leading-relaxed"
+              style={{ color: "rgba(240,237,230,0.55)" }}
+            >
               Prezență online care nu te face de rușine.
             </p>
 
             {/* Divider */}
-            <hr className="border-gray-100 mb-5" />
+            <hr
+              className="mb-5"
+              style={{ borderColor: "rgba(200,169,110,0.12)" }}
+            />
 
             {/* Features */}
             <ul className="space-y-3 mb-6">
               {vizibilFeatures.map((f, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
+                <li
+                  key={i}
+                  className="flex items-start gap-2 text-sm"
+                  style={{ color: "rgba(240,237,230,0.75)" }}
+                >
                   <Check
                     size={15}
-                    className="text-emerald-500 mt-0.5 flex-shrink-0"
+                    className="mt-0.5 flex-shrink-0"
+                    style={{ color: "#c8a96e" }}
                   />
                   <span>{f}</span>
                 </li>
@@ -135,26 +162,28 @@ export default function Pricing() {
             {/* CTA */}
             <a
               href="#contact"
-              className="w-full block text-center text-sm font-semibold rounded-lg transition-colors"
+              className="w-full block text-center text-sm font-semibold rounded-lg transition-all"
               style={{
                 background: "transparent",
-                color: "#2563EB",
-                border: "2px solid #2563EB",
+                color: "#c8a96e",
+                border: "2px solid #c8a96e",
                 padding: "12px 24px",
                 minHeight: "48px",
                 lineHeight: "24px",
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLAnchorElement;
-                el.style.background = "#EFF6FF";
-                el.style.borderColor = "#1D4ED8";
-                el.style.color = "#1D4ED8";
+                el.style.background = "rgba(200,169,110,0.12)";
+                el.style.borderColor = "#e0c98a";
+                el.style.color = "#e0c98a";
+                el.style.boxShadow = "0 0 16px rgba(200,169,110,0.18)";
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget as HTMLAnchorElement;
                 el.style.background = "transparent";
-                el.style.borderColor = "#2563EB";
-                el.style.color = "#2563EB";
+                el.style.borderColor = "#c8a96e";
+                el.style.color = "#c8a96e";
+                el.style.boxShadow = "none";
               }}
             >
               Vreau să fiu VIZIBIL — hai să vorbim
@@ -165,29 +194,31 @@ export default function Pricing() {
           <div
             className="pricing-card-relevant rounded-xl transition-all duration-300 hover:-translate-y-1.5 relative"
             style={{
-              background: "#FFFFFF",
+              background: "rgba(200,169,110,0.07)",
               backgroundImage:
-                "linear-gradient(#FFFFFF, #FFFFFF), linear-gradient(135deg, #2563EB 0%, #10B981 100%)",
+                "linear-gradient(rgba(200,169,110,0.07), rgba(200,169,110,0.04)), linear-gradient(135deg, #c8a96e 0%, #e0c98a 100%)",
               backgroundOrigin: "padding-box, border-box",
               backgroundClip: "padding-box, border-box",
               border: "2px solid transparent",
               padding: "40px 28px",
               marginTop: "-16px",
               borderRadius: "14px",
+              backdropFilter: "blur(12px)",
               boxShadow:
-                "0 4px 12px rgba(0,0,0,0.08), 0 0 0 4px rgba(37,99,235,0.06), 0 12px 32px rgba(37,99,235,0.12)",
+                "0 8px 32px rgba(0,0,0,0.50), 0 0 0 4px rgba(200,169,110,0.08), 0 16px 48px rgba(200,169,110,0.15)",
               zIndex: 1,
             }}
           >
             {/* Popular badge */}
             <span
-              className="absolute text-white text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full"
+              className="absolute text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full"
               style={{
                 top: "-14px",
                 left: "50%",
                 transform: "translateX(-50%)",
-                background: "linear-gradient(135deg, #2563EB 0%, #10B981 100%)",
-                boxShadow: "0 2px 8px rgba(37,99,235,0.30)",
+                background: "linear-gradient(135deg, #c8a96e 0%, #e0c98a 100%)",
+                color: "#0A0F1E",
+                boxShadow: "0 2px 12px rgba(200,169,110,0.40)",
                 whiteSpace: "nowrap",
               }}
             >
@@ -197,7 +228,7 @@ export default function Pricing() {
             {/* Tier label */}
             <p
               className="text-sm font-bold uppercase tracking-wider mb-4"
-              style={{ color: "#2563EB" }}
+              style={{ color: "#c8a96e" }}
             >
               Relevant
             </p>
@@ -208,7 +239,7 @@ export default function Pricing() {
                 className="font-bold leading-none"
                 style={{
                   fontSize: "48px",
-                  background: "linear-gradient(135deg, #2563EB 0%, #10B981 100%)",
+                  background: "linear-gradient(135deg, #c8a96e 0%, #e0c98a 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -216,24 +247,40 @@ export default function Pricing() {
               >
                 3.499
               </span>
-              <span className="text-sm text-gray-400 mb-2">RON/lună</span>
+              <span
+                className="text-sm mb-2"
+                style={{ color: "rgba(240,237,230,0.50)" }}
+              >
+                RON/lună
+              </span>
             </div>
 
             {/* Tagline */}
-            <p className="text-sm text-gray-500 italic mb-5 leading-relaxed">
+            <p
+              className="text-sm italic mb-5 leading-relaxed"
+              style={{ color: "rgba(240,237,230,0.65)" }}
+            >
               Ajungi la oamenii care cumpără, nu doar la urmăritori.
             </p>
 
             {/* Divider */}
-            <hr className="border-gray-100 mb-5" />
+            <hr
+              className="mb-5"
+              style={{ borderColor: "rgba(200,169,110,0.20)" }}
+            />
 
             {/* Features */}
             <ul className="space-y-3 mb-6">
               {relevantFeatures.map((f, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
+                <li
+                  key={i}
+                  className="flex items-start gap-2 text-sm"
+                  style={{ color: "rgba(240,237,230,0.80)" }}
+                >
                   <Check
                     size={15}
-                    className="text-emerald-500 mt-0.5 flex-shrink-0"
+                    className="mt-0.5 flex-shrink-0"
+                    style={{ color: "#c8a96e" }}
                   />
                   <span>{f}</span>
                 </li>
@@ -241,16 +288,24 @@ export default function Pricing() {
             </ul>
 
             {/* Ads note */}
-            <p className="text-xs text-gray-400 mb-4 leading-relaxed">
-              💡 <strong>Bugetul de reclame nu e inclus</strong> — îl controlezi tu complet. Noi gestionăm campaniile.
+            <p
+              className="text-xs mb-4 leading-relaxed"
+              style={{ color: "rgba(200,169,110,0.60)" }}
+            >
+              💡{" "}
+              <strong style={{ color: "rgba(200,169,110,0.85)" }}>
+                Bugetul de reclame nu e inclus
+              </strong>{" "}
+              — îl controlezi tu complet. Noi gestionăm campaniile.
             </p>
 
             {/* CTA */}
             <a
               href="#contact"
-              className="w-full block text-center text-white text-sm font-semibold rounded-lg transition-all"
+              className="w-full block text-center text-sm font-semibold rounded-lg transition-all"
               style={{
-                background: "#2563EB",
+                background: "#c8a96e",
+                color: "#0A0F1E",
                 border: "none",
                 padding: "14px 24px",
                 minHeight: "52px",
@@ -258,20 +313,23 @@ export default function Pricing() {
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLAnchorElement;
-                el.style.background = "#1D4ED8";
-                el.style.boxShadow = "0 4px 12px rgba(37,99,235,0.35)";
+                el.style.background = "#e0c98a";
+                el.style.boxShadow = "0 4px 20px rgba(200,169,110,0.45)";
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget as HTMLAnchorElement;
-                el.style.background = "#2563EB";
+                el.style.background = "#c8a96e";
                 el.style.boxShadow = "none";
               }}
             >
               Vreau să devin RELEVANT — hai să construim
             </a>
 
-            {/* Offer caption */}
-            <p className="text-xs text-emerald-500 text-center mt-3 font-medium">
+            {/* Caption */}
+            <p
+              className="text-xs text-center mt-3 font-medium"
+              style={{ color: "rgba(200,169,110,0.70)" }}
+            >
               ⚡ Cel mai ales de clienții noștri
             </p>
           </div>
@@ -280,31 +338,32 @@ export default function Pricing() {
           <div
             className="pricing-card-autoritate rounded-xl transition-all duration-300 hover:-translate-y-1 relative"
             style={{
-              background: "#111827",
-              border: "1px solid rgba(212,175,55,0.30)",
+              background: "rgba(10,15,30,0.70)",
+              border: "1px solid rgba(200,169,110,0.30)",
               padding: "32px 28px",
+              backdropFilter: "blur(8px)",
               boxShadow:
-                "0 4px 12px rgba(0,0,0,0.30), 0 0 32px rgba(212,175,55,0.08)",
+                "0 4px 24px rgba(0,0,0,0.50), 0 0 48px rgba(200,169,110,0.06)",
             }}
             onMouseEnter={(e) => {
               const el = e.currentTarget as HTMLDivElement;
-              el.style.borderColor = "rgba(212,175,55,0.55)";
+              el.style.borderColor = "rgba(200,169,110,0.55)";
               el.style.boxShadow =
-                "0 20px 48px rgba(0,0,0,0.40), 0 0 48px rgba(212,175,55,0.15)";
+                "0 20px 60px rgba(0,0,0,0.60), 0 0 64px rgba(200,169,110,0.14)";
             }}
             onMouseLeave={(e) => {
               const el = e.currentTarget as HTMLDivElement;
-              el.style.borderColor = "rgba(212,175,55,0.30)";
+              el.style.borderColor = "rgba(200,169,110,0.30)";
               el.style.boxShadow =
-                "0 4px 12px rgba(0,0,0,0.30), 0 0 32px rgba(212,175,55,0.08)";
+                "0 4px 24px rgba(0,0,0,0.50), 0 0 48px rgba(200,169,110,0.06)";
             }}
           >
             {/* Tier label */}
             <p
               className="text-xs font-semibold uppercase tracking-wider mb-4 flex items-center gap-2"
-              style={{ color: "#D4AF37" }}
+              style={{ color: "#c8a96e" }}
             >
-              <Gem size={14} style={{ color: "#D4AF37" }} />
+              <Gem size={14} style={{ color: "#c8a96e" }} />
               Autoritate
             </p>
 
@@ -312,11 +371,14 @@ export default function Pricing() {
             <div className="flex items-end gap-1 mb-1">
               <span
                 className="font-bold leading-none"
-                style={{ fontSize: "42px", color: "#D4AF37" }}
+                style={{ fontSize: "42px", color: "#c8a96e" }}
               >
                 5.999
               </span>
-              <span className="text-sm mb-2" style={{ color: "#9CA3AF" }}>
+              <span
+                className="text-sm mb-2"
+                style={{ color: "rgba(240,237,230,0.45)" }}
+              >
                 RON/lună
               </span>
             </div>
@@ -324,21 +386,28 @@ export default function Pricing() {
             {/* Tagline */}
             <p
               className="text-sm italic mb-5 leading-relaxed"
-              style={{ color: "#D1D5DB" }}
+              style={{ color: "rgba(240,237,230,0.65)" }}
             >
               Primul brand la care se gândesc. Înaintea concurenței.
             </p>
 
             {/* Divider */}
-            <hr className="mb-5" style={{ borderColor: "#374151" }} />
+            <hr
+              className="mb-5"
+              style={{ borderColor: "rgba(200,169,110,0.15)" }}
+            />
 
             {/* Features */}
             <ul className="space-y-3 mb-6">
               {autoritateFeatures.map((f, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm" style={{ color: "#E5E7EB" }}>
+                <li
+                  key={i}
+                  className="flex items-start gap-2 text-sm"
+                  style={{ color: "rgba(240,237,230,0.75)" }}
+                >
                   <span
                     className="font-bold flex-shrink-0 mt-0.5"
-                    style={{ color: "#D4AF37", fontSize: "14px" }}
+                    style={{ color: "#c8a96e", fontSize: "14px" }}
                   >
                     ◈
                   </span>
@@ -348,8 +417,15 @@ export default function Pricing() {
             </ul>
 
             {/* Ads note */}
-            <p className="text-xs mb-4 leading-relaxed" style={{ color: "#6B7280" }}>
-              💡 <strong style={{ color: "#9CA3AF" }}>Bugetul de reclame nu e inclus</strong> — îl controlezi tu complet. Noi gestionăm campaniile.
+            <p
+              className="text-xs mb-4 leading-relaxed"
+              style={{ color: "rgba(240,237,230,0.40)" }}
+            >
+              💡{" "}
+              <strong style={{ color: "rgba(240,237,230,0.60)" }}>
+                Bugetul de reclame nu e inclus
+              </strong>{" "}
+              — îl controlezi tu complet. Noi gestionăm campaniile.
             </p>
 
             {/* CTA */}
@@ -358,24 +434,24 @@ export default function Pricing() {
               className="w-full block text-center text-sm font-semibold rounded-lg transition-all"
               style={{
                 background: "transparent",
-                color: "#D4AF37",
-                border: "2px solid #D4AF37",
+                color: "#c8a96e",
+                border: "2px solid #c8a96e",
                 padding: "12px 24px",
                 minHeight: "48px",
                 lineHeight: "24px",
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLAnchorElement;
-                el.style.background = "rgba(212,175,55,0.15)";
-                el.style.borderColor = "#F0D080";
-                el.style.color = "#F0D080";
-                el.style.boxShadow = "0 0 16px rgba(212,175,55,0.20)";
+                el.style.background = "rgba(200,169,110,0.15)";
+                el.style.borderColor = "#e0c98a";
+                el.style.color = "#e0c98a";
+                el.style.boxShadow = "0 0 24px rgba(200,169,110,0.22)";
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget as HTMLAnchorElement;
                 el.style.background = "transparent";
-                el.style.borderColor = "#D4AF37";
-                el.style.color = "#D4AF37";
+                el.style.borderColor = "#c8a96e";
+                el.style.color = "#c8a96e";
                 el.style.boxShadow = "none";
               }}
             >
@@ -385,7 +461,7 @@ export default function Pricing() {
             {/* Scarcity */}
             <p
               className="text-xs text-center mt-3 font-medium"
-              style={{ color: "#D4AF37", opacity: 0.85 }}
+              style={{ color: "#c8a96e", opacity: 0.80 }}
             >
               ◈ Locuri limitate: 5 clienți / lună
             </p>
@@ -396,18 +472,19 @@ export default function Pricing() {
         <div
           className="max-w-2xl mx-auto mt-12 rounded-2xl text-center relative overflow-hidden"
           style={{
-            background: "#FFFFFF",
-            border: "1px solid #E5E7EB",
+            background: "rgba(255,255,255,0.03)",
+            border: "1px solid rgba(200,169,110,0.20)",
             padding: "48px 40px",
-            boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
+            backdropFilter: "blur(8px)",
+            boxShadow: "0 4px 24px rgba(0,0,0,0.30)",
           }}
         >
-          {/* Green top accent */}
+          {/* Gold top accent */}
           <div
             className="absolute top-0 left-0 right-0"
             style={{
               height: "3px",
-              background: "linear-gradient(90deg, #10B981 0%, #059669 100%)",
+              background: "linear-gradient(90deg, #c8a96e 0%, #e0c98a 50%, #c8a96e 100%)",
               borderRadius: "16px 16px 0 0",
             }}
           />
@@ -419,27 +496,36 @@ export default function Pricing() {
               style={{
                 width: "72px",
                 height: "72px",
-                background: "rgba(16,185,129,0.10)",
+                background: "rgba(200,169,110,0.10)",
               }}
             >
               <ShieldCheck
                 size={40}
-                style={{ color: "#10B981" }}
+                style={{ color: "#c8a96e" }}
                 strokeWidth={1.5}
               />
             </div>
           </div>
 
-          <h4 className="text-xl font-semibold text-gray-900 mb-3">
+          <h4
+            className="text-xl font-semibold mb-3"
+            style={{ color: "#F0EDE6" }}
+          >
             Dacă nu livrăm, plătești mai puțin. Simplu.
           </h4>
 
-          <p className="text-sm text-gray-500 leading-relaxed mb-6 max-w-lg mx-auto">
-            <strong className="text-gray-700">Creștere garantată:</strong> Dacă reach-ul organic nu crește cu 20% în primele 60 de zile, luna 3 e gratuită — automat, fără să ceri.
+          <p
+            className="text-sm leading-relaxed mb-6 max-w-lg mx-auto"
+            style={{ color: "rgba(240,237,230,0.55)" }}
+          >
+            <strong style={{ color: "rgba(240,237,230,0.80)" }}>Creștere garantată:</strong>{" "}
+            Dacă reach-ul organic nu crește cu 20% în primele 60 de zile, luna 3 e gratuită — automat, fără să ceri.
             <br className="mb-2" />
-            <strong className="text-gray-700">Livrare garantată:</strong> Dacă întârziem cu conținutul, primești 10% reducere pe luna respectivă — automat, fără discuții.
+            <strong style={{ color: "rgba(240,237,230,0.80)" }}>Livrare garantată:</strong>{" "}
+            Dacă întârziem cu conținutul, primești 10% reducere pe luna respectivă — automat, fără discuții.
             <br className="mb-2" />
-            <strong className="text-gray-700">Libertate garantată:</strong> Fără contracte pe 12 luni. Anulezi cu 30 de zile preaviz, oricând. Nicio penalizare.
+            <strong style={{ color: "rgba(240,237,230,0.80)" }}>Libertate garantată:</strong>{" "}
+            Fără contracte pe 12 luni. Anulezi cu 30 de zile preaviz, oricând. Nicio penalizare.
           </p>
 
           <ul className="flex flex-col items-center gap-2">
@@ -450,9 +536,15 @@ export default function Pricing() {
             ].map((item) => (
               <li
                 key={item}
-                className="flex items-center gap-2 text-sm text-gray-800"
+                className="flex items-center gap-2 text-sm"
+                style={{ color: "rgba(240,237,230,0.80)" }}
               >
-                <span className="text-emerald-500 font-bold text-base">✓</span>
+                <span
+                  className="font-bold text-base"
+                  style={{ color: "#c8a96e" }}
+                >
+                  ✓
+                </span>
                 {item}
               </li>
             ))}
@@ -460,11 +552,17 @@ export default function Pricing() {
         </div>
 
         {/* ─── Transparency note ─── */}
-        <p className="text-center text-xs text-gray-400 mt-6">
-          💡 <strong>Bugetul de reclame nu e inclus în prețul pachetului</strong> — îl controlezi tu complet. Noi gestionăm campaniile; tu decizi cât investești în ads.
+        <p
+          className="text-center text-xs mt-6"
+          style={{ color: "rgba(240,237,230,0.35)" }}
+        >
+          💡{" "}
+          <strong style={{ color: "rgba(240,237,230,0.50)" }}>
+            Bugetul de reclame nu e inclus în prețul pachetului
+          </strong>{" "}
+          — îl controlezi tu complet. Noi gestionăm campaniile; tu decizi cât investești în ads.
         </p>
       </div>
-
     </section>
   );
 }
